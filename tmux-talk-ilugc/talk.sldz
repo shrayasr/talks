@@ -13,6 +13,8 @@
   shrayasr
     - Logic Soft Pvt. Ltd.
 ===
+  ...
+===
   Quick show of hands
 ===
   Who here either knows of 
@@ -41,54 +43,175 @@
   Agenda
   + What really is Tmux?
   + Why Tmux?
-  + Tmux sessions
-  + Windows & Panes in Tmux
-  + Pair programming in Tmux
-===
-  $ What really is Tmux
+  + Sessions, Windows & Panes 
+  + Pair programming 
 ===
   $ What really is Tmux
 
-    > Really simple tool to manage your sessions
+    "Yo Dawg, I put a terminal in your terminal 
+     so you can use a terminal when using your
+     terminal" 
+
+      - Xibit
 ===
   $ What really is Tmux
 
-    > Really simple tool to manage your sessions
-    > Really simple tool to do splits
+    Tmux
 ===
   $ What really is Tmux
 
-    > Really simple tool to manage your sessions
-    > Really simple tool to do splits
-    > Really simple tool to configure
+    Tmux
+    ^ 
+    | 
+    +---Terminal
 ===
   $ What really is Tmux
 
-    > Really simple tool to manage your sessions
-    > Really simple tool to do splits
-    > Really simple tool to configure
-    > Really simple tool to pair program
+    Tmux
+    ^ ^
+    | |
+    +---Terminal
+      |
+      +---Multiplexer
 ===
   $ What really is Tmux
-      +--------------------+
-    > | Really simple tool |to manage your sessions
-    > | Really simple tool |to do splits
-    > | Really simple tool |to configure
-    > | Really simple tool |to pair program
-      +--------------------+
+
+    Way to make one terminal do 
+    a lot of terminals
 ===
   $ What really is Tmux
-      +--------------------+
-    > | Really simple tool |       "True."
-    > | Really simple tool |
-    > | Really simple tool |    "Word."
-    > | Really simple tool |
-      +--------------------+
+
+    <insert demo here>
 ===
-  +---------------------------------------+
-  |  "Thank god! If not for Tmux I would  |
-  |   be dead by now"                     |
-  |                                       | 
-  |    - @raghothams                      | 
-  +---------------------------------------+
+  $ Why Tmux?
+
+    "Why do I care, xibit?"
+===
+  $ Why Tmux?
+
+    "Why do I care, xibit?"
+      -"Because it lets you use the force"
+===
+  $ Why Tmux?
+
+    * All keyboard
+===
+  $ Why Tmux?
+
+    * All keyboard
+      * Less distraction
+===
+  $ Why Tmux?
+
+    * All keyboard
+      * Less distraction
+    * Attach & detatch
+===
+  $ Why Tmux?
+
+    * All keyboard
+      * Less distraction
+    * Attach & detatch
+      * Never lose anything
+===
+  $ Why Tmux?
+
+    * All keyboard
+      * Less distraction
+    * Attach & detatch
+      * Never lose anything (unless everything
+                             horibly crashes)
+===
+  $ Why Tmux?
+
+    * All keyboard
+      * Less distraction
+    * Attach & detatch
+      * Never lose anything (unless everything
+                             horibly crashes)
+      * Flakey links
+===
+  $ Why Tmux?
+
+    * All keyboard
+      * Less distraction
+    * Attach & detatch
+      * Never lose anything (unless everything
+                             horibly crashes)
+      * Flakey links
+    * Pair programming
+===
+  $ Why Tmux?
+
+    Cons?
+===
+  $ Why Tmux?
+
+    - Quirky
+===
+  $ Why Tmux?
+
+    - Quirky
+    - Not easy
+===
+  $ Why Tmux?
+
+    - Quirky
+    - Not easy
+    - Lots to unlearn
+===
+  $ Why Tmux?
+
+    B U T
+===
+  $ Why Tmux?
+
+    * SUPER productive!
+===
+  $ sessions, windows & panes
+===
+  $ sessions, windows & panes
+
+    <insert demo here>
+===
+  $ Pair programming
+===
+  $ Pair programming
+
+    <insert demo here>
+===
+  $ conclusion
+===
+  $ conclusion
+    
+    - Really cool
+===
+  $ conclusion
+
+    - Really cool
+    - Really quirky
+===
+  $ conclusion
+
+    - Really cool
+    - Really quirky
+    - EPIC
+===
+  $ conclusion
+
+    +---------------------------------------+
+    |  "Thank god! If not for Tmux I would  |
+    |   be dead by now"                     |
+    |                                       | 
+    |    - @raghothams                      | 
+    +---------------------------------------+
+===
+  - shrayasr at gmail dot com
+  - @shrayasr
+===
+      _______     
+     / ____(_)___ 
+    / /_  / / __ \
+   / __/ / / / / /
+  /_/   /_/_/ /_/ 
 ===
