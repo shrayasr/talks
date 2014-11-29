@@ -1,1 +1,8 @@
-Slides link: https://speakerdeck.com/shrayasr/introduction-to-sqlalchemy-orms
+Slides: https://speakerdeck.com/shrayasr/introduction-to-sqlalchemy-orms
+IPython Notebook: http://nbviewer.ipython.org/github/shrayasr/talks/blob/master/sqlalchemy-orms-chennaipy-nov2014/Demo.ipynb
+
+# Installation
+
+$ virtualenv env
+$ pip install -r requirements.txt
+$ ipython notebook
