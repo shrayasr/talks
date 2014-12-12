@@ -1,0 +1,8 @@
+Slides: <Will be updated>
+IPython Notebook: <Will be updated>
+
+# Installation
+
+$ virtualenv env
+$ pip install -r requirements.txt
+$ ipython notebook
