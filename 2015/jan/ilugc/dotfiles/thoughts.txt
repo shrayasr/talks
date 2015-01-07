@@ -1,7 +1,53 @@
 # what is a dotfile
 
 - any file that begins with a dot 
-- the ls program by default (sans the -a) parameter doesn't show
+- regarded as a hidden file
+- the ls program by default (sans the -a) parameter doesn't show dotfiles
+- files that begin with a . are usually where configuration for programs are
+  stored: eg: .xinitrc, .bashrc, .zshrc, .muttrc, etc
+- dotfiles that define configuration are stored in the home directory of the 
+  user
+
+# what do dotfiles signify?
+
+- who *you* are
+- everyone has a unique configuration, the way their terminals look, their 
+  keymaps, aliases, etc.
+- basically, at a terminal, your life :)
+
+# shellz
+
+- Interactive and non-interactive shells
+- Interactive are the ones that expect user input
+- Interactive:
+    - login
+        when u login at the console, etc. then .bash_profile is executed
+    - non login
+        when u open a new shell window *after* logging in
+- Non-interactive shells don't
+- All configuration files are loaded only in Interactive shells
+- Eg: non interactive are the ones that shell programs run inside of
+
+# Demo - part 1, let us set up a basic dotfiles system
+
+[ ] Understand when .bash_profile and .bashrc are called
+[ ] Set up some aliases
+[ ] Set up some fancy prompt
+[ ] Set up a vimrc
+
+# Why dotfiles at all?
+
+- portable configuration
+- comfortable on an system
+- lightweight
+- learn from the community
+- if your work is entirely terminal based, can get from a new system to 
+  a working system with your config in < 5 minutes
+
+# Demo - part 2, Bringing it all together
+
+[ ] Bundle everythang!
+[ ] Bring it all together
 
 ---
 
@@ -14,3 +60,5 @@
 - https://www.gnu.org/software/coreutils/
 - http://www.reddit.com/comments/13z2gf
 - http://git.savannah.gnu.org/cgit/coreutils.git/tree/src/ls.c
+- http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
+- http://shaneweng.com/blog-tech/why-dotfiles-are-needed/
