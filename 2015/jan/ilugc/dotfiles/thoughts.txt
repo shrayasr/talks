@@ -1,0 +1,16 @@
+# what is a dotfile
+
+- any file that begins with a dot 
+- the ls program by default (sans the -a) parameter doesn't show
+
+---
+
+# links
+
+- https://dotfiles.github.io/
+- https://github.com/mathiasbynens/dotfiles
+- http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/
+- http://en.wikipedia.org/wiki/Dot-file
+- https://www.gnu.org/software/coreutils/
+- http://www.reddit.com/comments/13z2gf
+- http://git.savannah.gnu.org/cgit/coreutils.git/tree/src/ls.c
