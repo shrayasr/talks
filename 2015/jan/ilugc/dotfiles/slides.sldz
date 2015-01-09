@@ -1,0 +1,109 @@
+  Hello, ILUGC!
+
+  Happy New year! :) 
+===
+  Shrayas
+
+    @shrayasr
+===
+  dotfiles
+===
+  dotfiles
+    - The why's and the what's
+===
+  Agenda
+===
+  Agenda
+    
+    + What
+    + Significance
+    + Shells
+    + Demo [1]
+    + Why
+    + Demo [2]
+===
+  What
+===
+  What
+
+    - Any file that begins with a dot
+    - Hidden files
+    - Configuration (usually)
+      .xinitrc | .bashrc | .muttrc 
+    - Home [~]
+===
+  Signficance
+===
+  How we use shells?
+    (Significance detour)
+
+    - Analze input    <--+
+    - Apply command      |
+    - Inspect output     |
+    - Repeat  -----------+
+===
+  How we use shells?
+    (Significance detour)
+
+    - Perform repeated tasks on different sets of input
+      to get different sets of outputs
+===
+  Significance
+===
+  Significance
+
+    - Ease of repeated actions
+    - Ones own style
+        > YMMV
+    - By defining configs, you try to bring the
+      computer closer to you
+    - When you sit at a computer with your config,
+      you know the barrier between you and productivity
+      is very less
+===
+  Shells
+===
+  Shells
+
+      - Interactive
+          - Login
+          - Non-Login
+      - Non Interactive
+===
+  Demo [1]
+
+    [ ] Understand .bash_profile and .bashrc 
+    [ ] Set up some base framework
+    [ ] Set up some aliases
+    [ ] Set up some fancy prompt
+    [ ] Set up a vimrc
+===
+  Why?
+
+    - Portability!
+    - Lowers the barrier to productivity
+    - Community <3
+    - If your work is entirely terminal based, you can
+      get from a new system to a working system in 
+      < 5 mins
+===
+  Demo [2]
+
+    [ ] Bundle everythang!
+    [ ] Bring it all together
+===
+  Conclusion
+
+    - dotfiles are awesome
+    - they store user configuration
+    - very lightweight
+    - bring computer closer to you as a person
+===
+      _______     
+     / ____(_)___ 
+    / /_  / / __ \
+   / __/ / / / / /
+  /_/   /_/_/ /_/ 
+
+  - shrayasr at gmail dot com
+  - @shrayasr
