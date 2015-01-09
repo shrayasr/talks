@@ -27,12 +27,73 @@
   What
 
     - Any file that begins with a dot
+===
+  What
+
+    - Any file that begins with a dot
+    - Hidden files
+===
+  What
+
+    - Any file that begins with a dot
+    - Hidden files
+    - Configuration (usually)
+===
+  What
+
+    - Any file that begins with a dot
+    - Hidden files
+    - Configuration (usually)
+      .xinitrc | .bashrc | .muttrc 
+===
+  What
+
+    - Any file that begins with a dot
     - Hidden files
     - Configuration (usually)
       .xinitrc | .bashrc | .muttrc 
     - Home [~]
 ===
   Signficance
+===
+  How we use shells?
+    (Significance detour)
+===
+  How we use shells?
+    (Significance detour)
+
+    - input    
+===
+  How we use shells?
+    (Significance detour)
+
+    - Analze input    
+===
+  How we use shells?
+    (Significance detour)
+
+    - Analze input    
+    - command  
+===
+  How we use shells?
+    (Significance detour)
+
+    - Analze input    
+    - Apply command  
+===
+  How we use shells?
+    (Significance detour)
+
+    - Analze input    
+    - Apply command  
+    - output
+===
+  How we use shells?
+    (Significance detour)
+
+    - Analze input    
+    - Apply command  
+    - Inspect output
 ===
   How we use shells?
     (Significance detour)
@@ -53,6 +114,24 @@
   Significance
 
     - Ease of repeated actions
+===
+  Significance
+
+    - Ease of repeated actions
+    - Ones own style
+        > YMMV
+===
+  Significance
+
+    - Ease of repeated actions
+    - Ones own style
+        > YMMV
+    - By defining configs, you try to bring the
+      computer closer to you
+===
+  Significance
+
+    - Ease of repeated actions
     - Ones own style
         > YMMV
     - By defining configs, you try to bring the
@@ -62,6 +141,21 @@
       is very less
 ===
   Shells
+===
+  Shells
+
+      - Interactive
+===
+  Shells
+
+      - Interactive
+      - Non Interactive
+===
+  Shells
+
+      - Interactive
+          - Login
+      - Non Interactive
 ===
   Shells
 
@@ -76,7 +170,23 @@
     [ ] Set up some base framework
     [ ] Set up some aliases
     [ ] Set up some fancy prompt
-    [ ] Set up a vimrc
+===
+  Why?
+===
+  Why?
+
+    - Portability!
+===
+  Why?
+
+    - Portability!
+    - Lowers the barrier to productivity
+===
+  Why?
+
+    - Portability!
+    - Lowers the barrier to productivity
+    - Community <3
 ===
   Why?
 
@@ -91,6 +201,23 @@
 
     [ ] Bundle everythang!
     [ ] Bring it all together
+===
+  Conclusion
+===
+  Conclusion
+
+    - dotfiles are awesome
+===
+  Conclusion
+
+    - dotfiles are awesome
+    - they store user configuration
+===
+  Conclusion
+
+    - dotfiles are awesome
+    - they store user configuration
+    - very lightweight
 ===
   Conclusion
 
