@@ -41,3 +41,20 @@ Simple, no?
 ## Hy
 
 - Lisp powered python
+- Transforms the lisp code into python AST
+
+### Getting and running Hy
+
+    $ pip install hy
+    $ hy
+
+### Why use Hy?
+
+Hy is a Pythonic lisp, so it lets us cross apply our knowledge from python
+whilst writing it in a lispy way.
+
+For people with any experience of Lisp, this would be great since they can
+apply the powers of lisp with the great ecosystem of a language like python
+
+For people with no background of Lisp, it is a wonderful way to get started with
+experimenting with it right within the comfort of python
