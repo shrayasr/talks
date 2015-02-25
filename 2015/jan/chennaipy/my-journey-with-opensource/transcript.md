@@ -1,3 +1,11 @@
+# Transcript
+> My Journey with the world of open source
+
+- Talk link: [Vimeo](https://vimeo.com/album/3253406/video/119355618)
+- Slides link: [Speakerdeck](https://speakerdeck.com/shrayasr/my-journey-with-the-world-of-open-source)
+
+---
+
 `[Slide 1]`
 
 Hi. 
