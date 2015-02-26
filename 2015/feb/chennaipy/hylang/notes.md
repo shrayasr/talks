@@ -23,12 +23,12 @@ In lisp, we would write this as a parenthesized polish notation, that is:
 
 While this can look very intimidating, its very easy once you understand it.
 One of the greatest advantages of something like this is that it supports
-variable arity out of the box. The syntax of lisp is actually very simple -
-The first symbol inside the parens is the function to run and the ones following
+variable arity out of the box. The syntax of lisp is actually very simple - The
+first symbol inside the parens is the function to run and the ones following
 the first symbol are the arguments to that function. 
 
-Lets revisit the initial example with multiple numbers. Usual we'd have to write
-it this way: 
+Lets revisit the initial example with multiple numbers. Usual we'd have to
+write it this way: 
 
     1 + 2 + 3 + 4
 
@@ -45,16 +45,37 @@ Simple, no?
 
 ### Getting and running Hy
 
-    $ pip install hy
-    $ hy
+    $ pip install hy $ hy
 
 ### Why use Hy?
 
-Hy is a Pythonic lisp, so it lets us cross apply our knowledge from python
-whilst writing it in a lispy way.
+- Hy is a Pythonic lisp, so it lets us cross apply our knowledge from python
+  whilst writing it in a lispy way.
+- For people with any experience of Lisp, this would be great since they can
+  apply the powers of lisp with the great ecosystem of a language like python
+- For people with no background of Lisp, it is a wonderful way to get started
+  with experimenting with it right within the comfort of python
+- Has great interop with python since it compiles down to the python ast. Can
+  be proven via pdb
 
-For people with any experience of Lisp, this would be great since they can
-apply the powers of lisp with the great ecosystem of a language like python
+### Some Hy
 
-For people with no background of Lisp, it is a wonderful way to get started with
-experimenting with it right within the comfort of python
+Python
+
+    def say_hello(name):
+      print "Hello", name
+
+    if __name__ == "__main__":
+      say_hello("python")
+
+Hy
+
+    (defn say_hello [name]
+      (print "Hello" name))
+
+    (if (= __name__ "__main__")
+      (say_hello "python"))
+
+---
+
+
