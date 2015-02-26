@@ -172,3 +172,60 @@ Hy
     (defn function_name [arg1 arg2 ..]
       (function-body))
 
+#### Import
+
+Hy
+
+    (import os)
+
+    (if (not (os.path.isdir "/foo/bar"))
+      (os.mkdir "/foo/bar"))
+
+#### Context managers (AKA `with`)
+
+Py
+
+    with open("/foo/bar/baz.txt") as f:
+      for line in f.readlines():
+        print line
+
+Hy
+
+    (with [[f (open "/foo/bar/baz.txt")]]
+      (for [line (.readlines f)]
+        (print line)))
+
+#### List Comprehensions!
+
+Py
+
+    nos = [1,2,3,4,5,6,7,8,9]
+    even = [ num for num in nos if num % 2 == 0 ]
+
+Hy
+
+    (setv nos [1 2 3 4 5 6 7 8 9])
+    (setv even 
+      (list-comp
+        num
+        (num nos)
+        (= (% num 2) 0)))
+
+#### Interop!
+
+Hy - `math.hy`
+
+    (defn square [x]
+      "returns square of x"
+      (* x x))
+
+Py - `usemath.py`
+
+    import hy
+    import maths
+
+    print maths.square(8)
+
+Running it
+
+    $ python usemath.py
