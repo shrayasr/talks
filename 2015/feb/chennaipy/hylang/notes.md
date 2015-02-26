@@ -60,7 +60,7 @@ Simple, no?
 
 ### Some Hy
 
-Python
+Py
 
     def say_hello(name):
       print "Hello", name
@@ -76,6 +76,99 @@ Hy
     (if (= __name__ "__main__")
       (say_hello "python"))
 
----
+### Some Hy constructs
 
+#### Setting variables
+
+Py
+
+    foo = 1
+
+Hy
+
+    (setv foo 1)
+
+#### Data structures
+
+Py
+
+    >>> [1,2,3]
+    >>> {"foo": 1, "bar": 2, "baz": 3}
+    >>> (1,2,3)
+
+Hy
+
+    => [1 2 3]
+    => {"foo" 1 "bar" 2 "baz" 3}
+    => (, 1 2 3)
+
+#### Methods on types
+
+Py
+
+    >>> "Hello World             ".strip()
+    "Hello World"
+
+Hy
+
+    => (.strip "Hello world             ")
+    "Hello world"
+
+#### Conditionals
+
+Py
+
+    if (foo > 5):
+      print "foo more than 5!"
+    else:
+      print "foo less than 5!"
+
+hy 
+
+    (if (> foo 5)
+      (print "foo more than 5!")
+      (print "foo less than 5!"))
+
+Py
+
+    if (foo > 7):
+      print "Too much"
+    elif (foo < 7):
+      print "Too less"
+    else:
+      print "ok :)"
+
+Hy
+
+    (cond 
+      [(> foo 7)
+        (print "Too much")]
+      [(< foo 7)
+        (print "Too less")]
+      [true
+        (print "ok :)")])
+
+#### Looping
+
+Py
+
+    for i in xrange(10):
+      print i
+
+Hy
+
+    (for [i (xrange 10)]
+      (print i))
+
+#### Function definition
+
+Py
+
+    def function_name (arg1, arg2..):
+      function_body
+
+Hy
+
+    (defn function_name [arg1 arg2 ..]
+      (function-body))
 
