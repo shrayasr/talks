@@ -43,6 +43,10 @@ Simple, no?
 - Lisp powered python
 - Transforms the lisp code into python AST
 
+### TODO
+
+- Watch [this](https://www.youtube.com/watch?v=AmMaN1AokTI)
+
 ### Getting and running Hy
 
     $ pip install hy $ hy
