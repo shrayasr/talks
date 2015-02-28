@@ -1,0 +1,14 @@
+Content from the first Chennaipy workshop on Python basics lies here 
+
+Meetup Link: http://www.meetup.com/Chennaipy/events/220501575/
+
+IPython Notebooks: 
+  - Introduction: http://nbviewer.ipython.org/github/shrayasr/talks/blob/master/2015/feb/chennaipy/workshop/Introduction.ipynb
+  - Lists & Loops: http://nbviewer.ipython.org/github/shrayasr/talks/blob/master/2015/feb/chennaipy/workshop/Lists%20and%20Loops.ipynb
+  - Tuples & List Comprehension: http://nbviewer.ipython.org/github/shrayasr/talks/blob/master/2015/feb/chennaipy/workshop/Sorting,%20Tuples%20and%20List%20Comprehension.ipynb
+
+# Installation
+
+$ virtualenv env
+$ pip install -r requirements.txt
+$ ipython notebook
