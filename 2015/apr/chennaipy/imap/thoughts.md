@@ -59,7 +59,7 @@ the class that can be used for it
 
 Lets work on some cases together
 
-### I want to check the count of emails in my inbox every 10 minutes
+### I want to check the count of emails in my inbox 
 
     import imaplib
     client = IMAP4_SSL("imap.gmail.com", "993")
