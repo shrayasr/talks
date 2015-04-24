@@ -128,7 +128,7 @@ to the required mail of choice.
     emails = client.search(None, '(FROM "foo@bar.com")')
     for email in emails[1][0].split():
       client.store(email, '+X-GM-LABELS', "foo")
-      # ...
+    # ...
 
 Moving mails from one "folder" to another is as simple as applying a new label
 and removing an old one. 
