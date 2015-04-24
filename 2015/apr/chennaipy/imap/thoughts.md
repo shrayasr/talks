@@ -35,7 +35,7 @@ can access the account as well
 
 Internet Mail Access Protocol
 
-## Gmail?
+## Gmail
 
 Gmail much like any other email service allows us to retrieve our mail by both
 pop3 and by imap methods. 
