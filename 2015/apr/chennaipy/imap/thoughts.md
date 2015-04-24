@@ -133,3 +133,39 @@ to the required mail of choice.
 Moving mails from one "folder" to another is as simple as applying a new label
 and removing an old one. 
 
+## OfflineIMAP [BONUS]
+
+Ok so you have a way to access your mail, to read it, and you tell me that
+it can be asynchronous. How do I get it all to my computer man?
+
+**OfflineIMAP** sir!
+
+OfflineIMAP is a piece of software that allows you to sync your inbox as a 
+local MailDir. This allows us to read our messages when offline. Any change
+that is made in both places is synced to the other place
+
+OfflineIMAP is written in python and can be a pretty big pinch to set up. 
+However it has gotten way easier over the past few releases and can be 
+set up with just a few lines in your ~/.offlineimaprc file
+
+Mails that are downloaded via the OfflineIMAP program are stored in the MailDir
+format which is readily recognized by multiple email clients. Some of them
+are Mutt (Vim based) and Gnus (Emacs based)
+
+### I want to do something with these mails though
+
+Sure boss!
+
+`import mailbox` 
+
+Mailbox is a module to manipulate on disk Mailboxes (which can be in multiple
+formats)
+
+To access mails on the mailbox is pretty simple: 
+
+    import mailbox
+    m = mailbox.MailDir("/path/to/Maildir")
+    for mail in m:
+      print mail["subject"]
+
+The mailbox object itself can be iterated on to process them
