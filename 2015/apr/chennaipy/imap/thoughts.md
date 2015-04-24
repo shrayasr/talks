@@ -95,11 +95,11 @@ Gmail adds a 'X-GM-RAW' search attribute to which you can pass the string
 "from:vijaykumar@bravegnu.org" and when you execute a `.search` with these
 parameters, you'll get back a set of matching message ids.
 
-### I want to get the mails from my sent box, that I sent to my girlfriend
+### I want to get the mails from my sent box, that I sent to Foo
 
     # ...
     client.select("[Gmail]/Sent Mail")
-    client.search(None, '(X-GM-RAW "to:iHaveNoGirlfriend@gmail.com")')
+    client.search(None, '(X-GM-RAW "to:foo@bar.com")')
     # ...
 
 OR since imap natively also has some decent search features, you can directly 
@@ -107,10 +107,10 @@ use the `TO` keyword instead of using the Gmail extension
 
     # ...
     client.select("[Gmail]/Sent Mail")
-    client.search(None, '(TO "iHaveNoGirlfriend@gmail.com")')
+    client.search(None, '(TO "foo@bar.com")')
     # ...
 
-### I want to search all the mails sent to me by my girlfiend and add a "love" label
+### I want to search all the mails sent to me by foo and add a "foo" label
 
 Labels are a notion of Gmail and not **ALL** mailboxes so this would also come 
 under the list of Gmail extensions.
@@ -125,10 +125,10 @@ to the required mail of choice.
 
     # ...
     client.select("INBOX")
-    emails = client.search(None, '(FROM "iHaveNoGirlfriend@gmail.com")')
+    emails = client.search(None, '(FROM "foo@bar.com")')
     for email in emails[1][0].split():
-      client.store(email, '+X-GM-LABELS', "love")
-    # ...
+      client.store(email, '+X-GM-LABELS', "foo")
+      # ...
 
 Moving mails from one "folder" to another is as simple as applying a new label
 and removing an old one. 
