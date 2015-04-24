@@ -36,3 +36,61 @@ can access the account as well
 Internet Mail Access Protocol
 
 ## Gmail?
+
+Gmail much like any other email service allows us to retrieve our mail by both
+pop3 and by imap methods. 
+
+imap however needs to be enabled from within the settings > Forwarding and POP/IMAP 
+menu. Additionally we have to allow access from "less secure" apps so that 
+application that google deems "less secure" can access the account via means
+other than OAuth (insert long discussion here)
+
+## Python
+
+So how do imap and gmail come together with Python?
+
+**`import imaplib`** 
+
+imaplib, a library in the standard lib, encapsulates a connection to an imap
+server
+
+Ideally you'd want to encrypt your connections using SSL/TLS and `IMAP4_SSL` is 
+the class that can be used for it
+
+Lets work on some cases together
+
+### I want to check the count of emails in my inbox every 10 minutes
+
+    import imaplib
+    client = IMAP4_SSL("imap.gmail.com", "993")
+    client.login("shrayasr@gmail.com","DontTryToReadMyPasswordMan")
+    result, response = client.select("INBOX")
+    print "count is %s" % response[0]
+
+Before we go any further though, let us understand some Gmail imap specifics
+
+In Gmail, there are no folders. Everything is but a label. All Gmail specific
+labels are prefixed with "[Gmail]/". Here are some examples:
+
+- Spam is "[Gmail]/Spam"
+- Drafts is "[Gmail]/Drafts"
+- Sent is "[Gmail]/Sent Mail"
+
+and so on.
+
+As i've already mentioned, the nice thing about imap is that it allows for
+extensions. I.e. Gmail can _extend_ the imap protocol and allow for some
+Gmail specific functions. 
+
+I'm sure we all have at some point, used and marvelled at how awesome the
+Gmail search is and how much of power it gives with its simple to understand
+syntax. For Eg. to search all mails from Vijay, i'd just have to type 
+"from: vijaykumar@bravegnu.org" in the search box and gmail will take care
+of the rest for me. 
+
+Gmail extends the imap "SEARCH" command and adds this interface _via_ imap 
+itself. How cool is that? How does it do it? 
+
+Gmail adds a 'X-GM-RAW' search attribute to which you can pass the string 
+"from:vijaykumar@bravegnu.org" and when you execute a `.search` with these
+parameters, you'll get back a set of matching message ids.
