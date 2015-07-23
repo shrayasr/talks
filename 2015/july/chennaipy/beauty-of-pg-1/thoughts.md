@@ -64,7 +64,8 @@ fields after checking for validity. There were a few functions on top of the
 json type to turn a given row in json and vice versa.
 
 ---
+
 Refs:
-http://michael.otacoo.com/postgresql-2/postgres-9-2-highlight-json-data-type/
-http://www.depesz.com/2014/03/25/waiting-for-9-4-introduce-jsonb-a-structured-format-for-storing-json/
+- http://michael.otacoo.com/postgresql-2/postgres-9-2-highlight-json-data-type/
+- http://www.depesz.com/2014/03/25/waiting-for-9-4-introduce-jsonb-a-structured-format-for-storing-json/
 
