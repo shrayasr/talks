@@ -28,3 +28,15 @@ VK's portion here
 ```
 
 ## Json
+
+Applications rely on two kinds of data - Structured and Unstructured. Depending
+on the domain, one might supersede the other. RDBMS' are really good at
+handling data which has a backing structure. Relations are very powerful and
+can be used to model a vast variety of business scenarios. Unstructured data is
+usually when we would opt for databases like MongoDB or the more recent -
+RethinkDB.
+
+There arises a case, more often than not that applications would reach a point
+of scale where they _will_ have to incorporate structured / unstructured data
+_along_ with the other. In this case, people usually opt to have two databases,
+one for structured and the other for unstructured data. Lets talk about that.
