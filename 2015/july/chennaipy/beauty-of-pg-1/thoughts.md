@@ -56,3 +56,15 @@ There arises a case, more often than not that applications would reach a point
 of scale where they _will_ have to incorporate structured / unstructured data
 _along_ with the other. In this case, people usually opt to have two databases,
 one for structured and the other for unstructured data. Lets talk about that.
+
+### history
+
+In 9.2, PG introduced the Json type. As of 9.2, they were just stored as text
+fields after checking for validity. There were a few functions on top of the 
+json type to turn a given row in json and vice versa.
+
+---
+Refs:
+http://michael.otacoo.com/postgresql-2/postgres-9-2-highlight-json-data-type/
+http://www.depesz.com/2014/03/25/waiting-for-9-4-introduce-jsonb-a-structured-format-for-storing-json/
+
