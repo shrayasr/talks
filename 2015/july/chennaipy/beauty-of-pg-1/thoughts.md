@@ -23,9 +23,25 @@ I'm sure that you're probably thinking right now as to what is so "new and
 advanced" about insert statements. You'll see soon enough how things behave
 with scale. 
 
-```
-VK's portion here
-```
+* inserting one record 
+  * using insert statement
+* inserting 1000 records
+  * using insert multiple values statement
+* inserting 1000000 records
+  * using insert with `values(),()` statement ? 
+    * But that's slow, 
+    * "The COPY command is optimized for loading large numbers of rows" [2]
+  * use copy with csv statement? OK but size of the csv in memory
+    * number of characters * 2bytes per string, 
+    * /r/whoadude
+  * use copy with binary ? 
+    * postgres standard file header
+    * number of fields
+      * field size
+      * field value
+    * size in memory ? datatype specific, 
+  * did I mention this was in prod
+    * not prod ? just use pgbulkload
 
 ## Json
 
