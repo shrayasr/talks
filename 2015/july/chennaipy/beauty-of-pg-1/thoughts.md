@@ -45,6 +45,20 @@ with scale.
 
 ## Json
 
+### Outline
+
+* Intro
+* History 
+  * json
+  * jsonb
+* Use cases 
+* Demos
+  * Path traversal
+  * Array contains
+  * Indexes
+
+### Intro
+
 Applications rely on two kinds of data - Structured and Unstructured. Depending
 on the domain, one might supersede the other. RDBMS' are really good at
 handling data which has a backing structure. Relations are very powerful and
