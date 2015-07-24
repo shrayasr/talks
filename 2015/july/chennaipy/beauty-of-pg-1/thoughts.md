@@ -101,6 +101,117 @@ along with the addition of many more json generation/querying functions.
 * Store API Keys / Integration information
 * Delayed processing of API responses from 3rd party sources 
 
+### Demos
+
+```
+select count(*) from raw_notifications_cleaned 
+where 
+  data ->> 'notificationType' = 'Delivery';
+
+select (data -> 'bounce' ->> 'timestamp')::timestamp from raw_notifications_cleaned 
+where 
+  data ->> 'notificationType' = 'Bounce';
+
+select data -> 'mail' -> 'destination' from raw_notifications_cleaned 
+where 
+  data ->> 'notificationType' = 'Bounce';
+
+select data -> 'mail' -> 'timestamp' from raw_notifications_cleaned 
+where 
+  data ->> 'notificationType' = 'Bounce' and 
+  data -> 'mail' -> 'destination' ? 'sengupta.anaya@rediffmail.com';
+
+select data #> '{mail, timestamp}' from raw_notifications_cleaned;
+select data -> 'mail' -> 'timestamp' from raw_notifications_cleaned;
+
+select count(*) from raw_notifications_cleaned 
+where 
+  data -> 'mail' @> '{ "source" : "newarrivals@starmark.in"}'::jsonb and
+  data ->> 'notificationType' = 'Bounce';
+
+select data #> '{mail, timestamp}' from raw_notifications_cleaned;
+
+select data -> 'bounce' ->> 'bounceType', data -> 'bounce' ->> 'bounceSubType' from raw_notifications_cleaned  
+where
+  (data -> 'mail' ->> 'timestamp')::timestamp > '2015-07-12T13:34:00' and
+  (data -> 'mail' ->> 'timestamp')::timestamp < '2015-07-12T13:38:00' and
+  data ->> 'notificationType' = 'Bounce';
+
+select '{"foo": "bar"}'::json;
+
+select '{
+  "foo": "bar",
+  "bar": true,
+  "baz": 1
+  }'::json;
+
+  
+select '{
+  "foo": "bar",
+  "bar": true,
+  "baz": 1
+  }'::jsonb;
+
+select pg_column_size('{
+  "foo": "bar",
+  "bar": [1,2,3],
+  "baz": 12311122
+  }'::json);
+
+select pg_column_size('{
+  "foo": "bar",
+  "bar": [1,2,3],
+  "baz": 12311122
+  }'::jsonb);
+
+select pg_column_size('{
+      "notificationType":"Bounce",
+      "bounce":{
+         "bounceType":"Permanent",
+         "bounceSubType": "General",
+         "bouncedRecipients":[
+            {
+               "emailAddress":"recipient1@example.com"
+            },
+            {
+               "emailAddress":"recipient2@example.com"
+            }
+         ],
+         "timestamp":"2012-05-25T14:59:38.237-07:00",
+         "feedbackId":"00000137860315fd-869464a4-8680-4114-98d3-716fe35851f9-000000"
+      },
+      "mail":{
+         "timestamp":"2012-05-25T14:59:38.237-07:00",
+         "messageId":"00000137860315fd-34208509-5b74-41f3-95c5-22c1edc3c924-000000",
+         "source":"email_1337983178237@amazon.com",
+         "sourceArn": "arn:aws:ses:us-west-2:888888888888:identity/example.com",
+         "sendingAccountId":"123456789012",
+         "destination":[
+            "recipient1@example.com",
+            "recipient2@example.com",
+            "recipient3@example.com",
+            "recipient4@example.com"
+         ]
+      }
+   }'::jsonb);
+
+select count(*) from raw_notifications_cleaned 
+where
+  data ->> 'notificationType' = 'Bounce'
+
+------------------------------
+
+drop index whatever;
+explain analyze select count(*) from raw_notifications_cleaned 
+where
+  data ->> 'notificationType' = 'Bounce';
+
+create index whatever on raw_notifications_cleaned ((data ->> 'notificationType'));
+explain analyze select count(*) from raw_notifications_cleaned 
+where
+  data ->> 'notificationType' = 'Bounce'
+```
+
 ---
 
 Refs:
