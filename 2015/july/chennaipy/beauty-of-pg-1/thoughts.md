@@ -71,9 +71,9 @@ of scale where they _will_ have to incorporate structured / unstructured data
 _along_ with the other. In this case, people usually opt to have two databases,
 one for structured and the other for unstructured data. Lets talk about that.
 
-### history
+### History
 
-#### 9.2
+#### Json
 
 In 9.2, PG introduced the Json type. As of 9.2, they were just stored as text
 fields after checking for validity. There were a few functions on top of the 
@@ -86,7 +86,7 @@ validation), so while insertion would be cheap, querying would be a tough thing
 to do since it had to convert it to a proper json format before performing any
 operation on it.
 
-#### Enter 9.4
+#### Enter Jsonb
 
 In 9.4, PG introduced the new Jsonb type - A much required improvement on the
 json format. The major difference was that the storage now didn't require us
@@ -96,9 +96,17 @@ the power to apply concepts like indexing to a json column!
 Because of this, all the existing json_* functions were supported with jsonb
 along with the addition of many more json generation/querying functions. 
 
+### Use cases 
+
+* Store API Keys / Integration information
+* Delayed processing of API responses from 3rd party sources 
+* 
+
 ---
 
 Refs:
 - http://michael.otacoo.com/postgresql-2/postgres-9-2-highlight-json-data-type/
 - http://www.depesz.com/2014/03/25/waiting-for-9-4-introduce-jsonb-a-structured-format-for-storing-json/
+- https://blog.codeship.com/unleash-the-power-of-storing-json-in-postgres/
+- http://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails
 
