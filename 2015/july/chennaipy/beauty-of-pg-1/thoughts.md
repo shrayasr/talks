@@ -59,9 +59,28 @@ one for structured and the other for unstructured data. Lets talk about that.
 
 ### history
 
+#### 9.2
+
 In 9.2, PG introduced the Json type. As of 9.2, they were just stored as text
 fields after checking for validity. There were a few functions on top of the 
 json type to turn a given row in json and vice versa.
+
+Had stuff like row_to_json and array_to_json
+
+The main caveat however was that storage was still text (after json
+validation), so while insertion would be cheap, querying would be a tough thing
+to do since it had to convert it to a proper json format before performing any
+operation on it.
+
+#### Enter 9.4
+
+In 9.4, PG introduced the new Jsonb type - A much required improvement on the
+json format. The major difference was that the storage now didn't require us
+to reparse the original text in order to process it. This brought with it 
+the power to apply concepts like indexing to a json column! 
+
+Because of this, all the existing json_* functions were supported with jsonb
+along with the addition of many more json generation/querying functions. 
 
 ---
 
