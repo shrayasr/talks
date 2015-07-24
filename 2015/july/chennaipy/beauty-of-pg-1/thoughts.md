@@ -96,11 +96,10 @@ the power to apply concepts like indexing to a json column!
 Because of this, all the existing json_* functions were supported with jsonb
 along with the addition of many more json generation/querying functions. 
 
-### Use cases 
+### Some use cases 
 
 * Store API Keys / Integration information
 * Delayed processing of API responses from 3rd party sources 
-* 
 
 ---
 
