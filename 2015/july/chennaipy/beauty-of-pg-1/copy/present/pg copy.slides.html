@@ -322,7 +322,7 @@ div.output_prompt {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
     <span class="s">&quot;INSERT INTO random_test_table(some_text, some_int, some_double, some_boolean) VALUES (</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">)&quot;</span><span class="p">,(</span>
         <span class="n">row</span><span class="p">[</span><span class="s">&#39;some_text&#39;</span><span class="p">]</span>
         <span class="p">,</span><span class="n">row</span><span class="p">[</span><span class="s">&#39;some_int&#39;</span><span class="p">]</span>
@@ -332,20 +332,6 @@ div.output_prompt {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>None
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -435,17 +421,6 @@ div.output_prompt {
 </div>
 
 </div>
-    </div><div style=display:none>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="No-one-does-this">No one does this<a class="anchor-link" href="#No-one-does-this">&#182;</a></h4>
-</div>
-</div>
-</div>
     </div><aside class="notes">
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -494,7 +469,8 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>this is great, all is well, everyone is happy</p>
+<p>its usally easy to just convert a single tuple statement and use this statement, you don't have to duplicate insert statements. 
+this is great, all is well, everyone is happy</p>
 
 </div>
 </div>
@@ -511,7 +487,7 @@ div.output_prompt {
 <h4 id="How-I-wish-we-had-less-data">How I wish we had less data<a class="anchor-link" href="#How-I-wish-we-had-less-data">&#182;</a></h4>
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="20">
+</div><div class="fragment" data-fragment-index="19">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -559,7 +535,7 @@ div.output_prompt {
 </div>
 
 </div>
-    </div><div class="fragment" data-fragment-index="23">
+    </div><div class="fragment" data-fragment-index="22">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -700,10 +676,27 @@ the binary mode is what we are goign to talk about today, its like any other bin
 <span class="n">cy</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pack</span><span class="p">(</span><span class="s">&#39;&gt;i&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">cy</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pack</span><span class="p">(</span><span class="s">&#39;&gt;?&#39;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;some_boolean&#39;</span><span class="p">]))</span>
 </pre></div>
+<p>--
+<br/>
+<sup>https://docs.python.org/2/library/struct.html</sup>
+<br/>
+<sup>http://www.postgresql.org/docs/9.4/static/datatype-numeric.html</sup></p>
 
 </div>
 </div>
-</div></section><section>
+</div><aside class="notes">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>mind the size of bytes, compare against the postgres columns with the python pack to see the correct size</p>
+
+</div>
+</div>
+</div>
+    </aside></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -830,8 +823,24 @@ Wall time: 252 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It's OK if you don't believe me. :)</p>
+<h3 id="Closing-points">Closing points<a class="anchor-link" href="#Closing-points">&#182;</a></h3><ul>
+<li><code>COPY</code> is great for inserting large amounts data</li>
+<li>No freeform prepared statements</li>
+<li>Sometimes very poor error messages.</li>
+</ul>
 
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Thank-You">Thank You<a class="anchor-link" href="#Thank-You">&#182;</a></h1>
 </div>
 </div>
 </div>
