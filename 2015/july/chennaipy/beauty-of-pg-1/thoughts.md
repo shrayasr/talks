@@ -53,8 +53,8 @@ with scale.
   * jsonb
 * Use cases 
 * Demos
+  * Json/Jsonb storage
   * Path traversal
-  * Array contains
   * Indexes
 
 ### Intro
@@ -103,40 +103,9 @@ along with the addition of many more json generation/querying functions.
 
 ### Demos
 
+#### Json/Jsonb Storage
+
 ```
-select count(*) from raw_notifications_cleaned 
-where 
-  data ->> 'notificationType' = 'Delivery';
-
-select (data -> 'bounce' ->> 'timestamp')::timestamp from raw_notifications_cleaned 
-where 
-  data ->> 'notificationType' = 'Bounce';
-
-select data -> 'mail' -> 'destination' from raw_notifications_cleaned 
-where 
-  data ->> 'notificationType' = 'Bounce';
-
-select data -> 'mail' -> 'timestamp' from raw_notifications_cleaned 
-where 
-  data ->> 'notificationType' = 'Bounce' and 
-  data -> 'mail' -> 'destination' ? 'sengupta.anaya@rediffmail.com';
-
-select data #> '{mail, timestamp}' from raw_notifications_cleaned;
-select data -> 'mail' -> 'timestamp' from raw_notifications_cleaned;
-
-select count(*) from raw_notifications_cleaned 
-where 
-  data -> 'mail' @> '{ "source" : "newarrivals@starmark.in"}'::jsonb and
-  data ->> 'notificationType' = 'Bounce';
-
-select data #> '{mail, timestamp}' from raw_notifications_cleaned;
-
-select data -> 'bounce' ->> 'bounceType', data -> 'bounce' ->> 'bounceSubType' from raw_notifications_cleaned  
-where
-  (data -> 'mail' ->> 'timestamp')::timestamp > '2015-07-12T13:34:00' and
-  (data -> 'mail' ->> 'timestamp')::timestamp < '2015-07-12T13:38:00' and
-  data ->> 'notificationType' = 'Bounce';
-
 select '{"foo": "bar"}'::json;
 
 select '{
@@ -145,24 +114,13 @@ select '{
   "baz": 1
   }'::json;
 
+select '{"foo": "bar"}'::jsonb;
   
 select '{
   "foo": "bar",
   "bar": true,
   "baz": 1
   }'::jsonb;
-
-select pg_column_size('{
-  "foo": "bar",
-  "bar": [1,2,3],
-  "baz": 12311122
-  }'::json);
-
-select pg_column_size('{
-  "foo": "bar",
-  "bar": [1,2,3],
-  "baz": 12311122
-  }'::jsonb);
 
 select pg_column_size('{
       "notificationType":"Bounce",
@@ -194,22 +152,44 @@ select pg_column_size('{
          ]
       }
    }'::jsonb);
+```
 
+#### Path Traversal
+
+```
 select count(*) from raw_notifications_cleaned 
-where
-  data ->> 'notificationType' = 'Bounce'
+where 
+  data ->> 'notificationType' = 'Delivery';
 
-------------------------------
-
-drop index whatever;
-explain analyze select count(*) from raw_notifications_cleaned 
-where
+select (data -> 'bounce' ->> 'timestamp')::timestamp from raw_notifications_cleaned 
+where 
   data ->> 'notificationType' = 'Bounce';
 
-create index whatever on raw_notifications_cleaned ((data ->> 'notificationType'));
+select data #> '{mail, timestamp}' from raw_notifications_cleaned;
+
+select data -> 'mail' -> 'timestamp' from raw_notifications_cleaned;
+
+select data -> 'bounce' ->> 'bounceType', data -> 'bounce' ->> 'bounceSubType' from raw_notifications_cleaned  
+where
+  (data -> 'mail' ->> 'timestamp')::timestamp > '2015-07-12T13:34:00' and
+  (data -> 'mail' ->> 'timestamp')::timestamp < '2015-07-12T13:38:00' and
+  data ->> 'notificationType' = 'Bounce';
+```
+
+#### Indexing
+
+```
+drop index rwc_idx_data_notifType;
+create index rwc_idx_data_notifType on raw_notifications_cleaned ((data ->> 'notificationType'));
 explain analyze select count(*) from raw_notifications_cleaned 
 where
   data ->> 'notificationType' = 'Bounce'
+
+drop index rwc_idx_data_bounce;
+create index rwc_idx_data_bounce on raw_notifications_cleaned using gin ((data -> 'bounce') jsonb_path_ops);
+explain analyze select * from raw_notifications_cleaned 
+where
+  data -> 'bounce' @> '{"bouncedRecipients":[{"emailAddress": "sengupta.anaya@rediffmail.com"}]}';
 ```
 
 ---
