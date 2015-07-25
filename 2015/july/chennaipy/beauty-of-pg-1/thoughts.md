@@ -169,7 +169,8 @@ select data #> '{mail, timestamp}' from raw_notifications_cleaned;
 
 select data -> 'mail' -> 'timestamp' from raw_notifications_cleaned;
 
-select data -> 'bounce' ->> 'bounceType', data -> 'bounce' ->> 'bounceSubType' from raw_notifications_cleaned  
+select data -> 'bounce' ->> 'bounceType', data -> 'bounce' ->> 'bounceSubType' 
+from raw_notifications_cleaned  
 where
   (data -> 'mail' ->> 'timestamp')::timestamp > '2015-07-12T13:34:00' and
   (data -> 'mail' ->> 'timestamp')::timestamp < '2015-07-12T13:38:00' and
@@ -177,20 +178,29 @@ where
 
 select * 
 from raw_notifications_cleaned
-where to_json(array(select jsonb_array_elements(data -> 'bounce' -> 'bouncedRecipients') ->> 'emailAddress'))::jsonb ?| array['sengupta.anaya@rediffmail.com']
+where to_json(
+  array(
+    select jsonb_array_elements(data 
+      -> 'bounce' 
+      -> 'bouncedRecipients') 
+        ->> 'emailAddress'))::jsonb ?| array['sengupta.anaya@rediffmail.com']
 ```
 
 #### Indexing
 
 ```
 drop index rwc_idx_data_notifType;
-create index rwc_idx_data_notifType on raw_notifications_cleaned ((data ->> 'notificationType'));
+create index rwc_idx_data_notifType 
+  on raw_notifications_cleaned ((data ->> 'notificationType'));
+
 explain analyze select count(*) from raw_notifications_cleaned 
 where
   data ->> 'notificationType' = 'Bounce'
 
 drop index rwc_idx_data_bounce;
-create index rwc_idx_data_bounce on raw_notifications_cleaned using gin ((data -> 'bounce') jsonb_path_ops);
+create index rwc_idx_data_bounce on raw_notifications_cleaned 
+using gin ((data -> 'bounce') jsonb_path_ops);
+
 explain analyze select * from raw_notifications_cleaned 
 where
   data -> 'bounce' @> '{"bouncedRecipients":[{"emailAddress": "sengupta.anaya@rediffmail.com"}]}';
