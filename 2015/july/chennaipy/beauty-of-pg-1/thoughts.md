@@ -174,6 +174,10 @@ where
   (data -> 'mail' ->> 'timestamp')::timestamp > '2015-07-12T13:34:00' and
   (data -> 'mail' ->> 'timestamp')::timestamp < '2015-07-12T13:38:00' and
   data ->> 'notificationType' = 'Bounce';
+
+select * 
+from raw_notifications_cleaned
+where to_json(array(select jsonb_array_elements(data -> 'bounce' -> 'bouncedRecipients') ->> 'emailAddress'))::jsonb ?| array['sengupta.anaya@rediffmail.com']
 ```
 
 #### Indexing
@@ -199,4 +203,7 @@ Refs:
 - http://www.depesz.com/2014/03/25/waiting-for-9-4-introduce-jsonb-a-structured-format-for-storing-json/
 - https://blog.codeship.com/unleash-the-power-of-storing-json-in-postgres/
 - http://nandovieira.com/using-postgresql-and-jsonb-with-ruby-on-rails
+
+Future Refs:
+- http://stackoverflow.com/questions/28486192/postgresql-query-array-of-objects-in-jsonb-field
 
